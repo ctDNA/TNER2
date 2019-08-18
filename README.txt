@@ -1,18 +1,12 @@
 ###############################################################################
-README
-
-TNER: Tri-Nucleotide Error Reducer
-
-TNER is a novel background error suppression tool that provides a robust 
-estimation of background noise to reduce sequencing errors using tri-nucleotide 
-context data for better identification of low frequency somatic mutations in
-ctDNA (Circulating tumor DNA).
-
-Version: 1.1
-Last updated: Oct/04/2018
-Contact: shibing.deng {at} pfizer.com or tao.xie {at} pfizer.com
-Pfizer Early Clinical Development Biostatistics
+TNER2
+TNER: Tri-Nucleotide Error Reducer2
+Build cfDNA background polish model with cancer TNC data
+Using tri-nucleotide context data in a Bayesian model
+Last updated: 08/17/2019
+Contact: shibing.deng {at} pfizer.com & tao.xie {at} pfizer.com
 Pfizer Oncology Research & Development
+Copyright (c) 2019 Pfizer Inc.
 ###############################################################################
 
 Pre-requisites/Installation:
@@ -26,22 +20,22 @@ Test the TNER main function using the demo dataset
 ----------------------------
 "Rscript TNER_main.R TNER_example_input_file.txt hs_ave_bg_error.csv hs_depth.csv"
 
-Note: ìTNER_example_input_file.txtî is the example input data to be analyzed; the 2nd argument (default:
-ìhs_ave_bg_error.csvì) is a csv file with the average background error rate from healthy subjects; the
-last argument (default: ìhs_depth.csvî) is a csv file with the base coverage in healthy subjects. TNER 
+Note: ‚ÄúTNER_example_input_file.txt‚Äù is the example input data to be analyzed; the 2nd argument (default:
+‚Äúhs_ave_bg_error.csv‚Äú) is a csv file with the average background error rate from healthy subjects; the
+last argument (default: ‚Äúhs_depth.csv‚Äù) is a csv file with the base coverage in healthy subjects. TNER 
 report the nosiy bases detected in the input data which can be used as a filter to apply to the variant
 calls from any existing pipeline. 
 
 
 ----------------------------
-Build background error profile using "Create_background_error_rate.Rî 
+Build background error profile using "Create_background_error_rate.R‚Äù 
 ----------------------------
 "Rscript Create_background_error_rate.R"
 
-Note: "Create_background_error_rate.Rî creates an average background error rate file from individual healthy 
+Note: "Create_background_error_rate.R‚Äù creates an average background error rate file from individual healthy 
 subject data (should be stored in the subfolder named as "healthy_subjects", file format is as same as 
-"TNER_example_input_file.txt"). The function outputs ìhs_ave_bg_error.csvî and ìhs_depth.csvî for the main 
-function ìTNER_main.Rî
+"TNER_example_input_file.txt"). The function outputs ‚Äúhs_ave_bg_error.csv‚Äù and ‚Äúhs_depth.csv‚Äù for the main 
+function ‚ÄúTNER_main.R‚Äù
 
 
 ----------------------------
@@ -49,7 +43,7 @@ Process pileup files for TNER using "pileup2actg.pl"
 ----------------------------
 "perl pileup2actg.pl 
 
-Note: this perl script processes a pileup file to generate a tab-delimited txt file for running ìTNER_main.Rî.
+Note: this perl script processes a pileup file to generate a tab-delimited txt file for running ‚ÄúTNER_main.R‚Äù.
 
 
 ----------------------------
